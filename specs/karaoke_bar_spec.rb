@@ -97,10 +97,17 @@ class KaraokeTest < MiniTest::Test
   end
 
   def test_buy_drink
-    @guest5.buy_drink(@drink1)
+    @guest5.buy_drink(@drink1, @tab)
     assert_equal(58, @guest5.wallet)
   end
 
+  def test_buy_drink_tab
+    @room1.check_in(@guest2, @tab)
+    @room1.check_in(@guest3, @tab)
+    @room1.check_in(@guest5, @tab)
+    @tab.add_drink_tab(@guest5, @drink1)
+    p @tab.tab
+  end
 
 
 end #class end

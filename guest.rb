@@ -27,9 +27,10 @@ class Guest
       return nil
     end
 
-    def buy_drink(drink)
+    def buy_drink(drink, tab)
       @wallet -= drink.price
-    end 
+      tab.add_drink_tab(self, drink)
+    end
 
 
 end #class end
